@@ -25,9 +25,9 @@ def main(argv):
     # podemos mudar o número de paginas até o limite existente na página
     for pagina in range(30): # escolhi 30
         if pagina > 0:
-            driver.get("https://www.pensador.com/curtas_frases_de_amor/" + str(pagina+1)+"/") # não esxiste pagina 1
+            driver.get("https://www.pensador.com/frases_de_motivacao/" + str(pagina+1)+"/") # não esxiste pagina 1
         else:
-            driver.get("https://www.pensador.com/curtas_frases_de_amor/")
+            driver.get("https://www.pensador.com/frases_de_motivacao/")
         
         
         elem = driver.find_elements_by_class_name("thought-card") # os divs com os frases e autores de mesma classe
@@ -45,17 +45,8 @@ def main(argv):
             
         
     df = pd.DataFrame(data, columns=['Frase', 'Autor']) # trasnformando em um dataframe
-    df.to_csv('frases_de_amor_curtas', index=False) # salvando um arquivo csv dataset
-    
-    
-    
- 
-    
-    
-    
-    
-    
-    
+    df.to_csv('frases_de_motivacao', index=False) # salvando um arquivo csv dataset
+     
     print("Everything is done!")
     driver.close()
 
